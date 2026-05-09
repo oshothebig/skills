@@ -1,6 +1,6 @@
 ---
 name: github
-description: GitHub には `gh` コマンドを使ってアクセスする。GitHub Issue, PR, Actions などの GitHub へのアクセスが必要なときに使用する。
+description: GitHub には `gh` コマンドを使ってアクセスする。Issue や PR を参照する、列挙する、作成する、 Actions のステータスを確認する、レポジトリの情報を取得するなど GitHub のリソースの参照、列挙、作成、検索などで使用する。
 ---
 
 # GitHub Skill
