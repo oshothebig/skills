@@ -1,0 +1,3 @@
+interface:
+  display_name: "Daily Note"
+  short_description: "今日のタスクとミーティングを daily ノートにまとめる"

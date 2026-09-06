@@ -1,0 +1,3 @@
+interface:
+  display_name: "Daily Digest"
+  short_description: "GitHub 上で行った今日の Issue・PR の活動を要約する"
