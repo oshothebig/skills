@@ -14,7 +14,7 @@ CLAUDE.md の `currentDate` から今日の日付を取得する。以下 `$TODA
 
 ### 2. GitHub の検索を実行する
 
-以下の4つの検索を**並列で**実行する:
+以下の4つの検索を実行する。実行順序や実行方法は、検索結果の件数や実行環境に応じて適切に選択する:
 
 ```bash
 gh search issues --author=@me --updated=$TODAY --limit 50 --json title,url,updatedAt,state,repository
@@ -25,7 +25,7 @@ gh search issues --commenter=@me --updated=$TODAY --limit 50 --json title,url,up
 
 ### 3. 重複を排除して各 Issue/PR の詳細を取得する
 
-検索結果の URL で重複を排除し、ユニークな Issue/PR それぞれについて詳細を**並列で**取得する:
+検索結果の URL で重複を排除し、ユニークな Issue/PR それぞれについて詳細を取得する。取得方法は、対象件数や実行環境に応じて適切に選択する:
 
 - Issue の場合:
 ```bash
