@@ -29,17 +29,13 @@ GitHub 上の指定日の活動を `gh` コマンドで検索し、各 Issue/PR 
 
 ### 3. 重複を排除して各 Issue/PR の詳細を取得する
 
-検索結果の URL で重複を排除し、ユニークな Issue/PR それぞれについて詳細を取得する。取得方法は、対象件数や実行環境に応じて適切に選択する:
+検索結果の URL で重複を排除し、`gh` コマンドを使って各 Issue/PR の詳細を取得する。対象日に自分が何をしたかを確認し、要約に必要な背景を把握する。
 
-- Issue の場合:
-```bash
-gh issue view <number> --repo <owner/repo> --json title,body,comments --jq '{title, body: .body[:500], comments: [.comments[] | select(.createdAt >= "{TARGET_DATE}" or .updatedAt >= "{TARGET_DATE}") | {author: .author.login, body: .body[:300], createdAt}]}'
-```
-
-- PR の場合:
-```bash
-gh pr view <number> --repo <owner/repo> --json title,body,comments,reviews,mergedAt --jq '{title, body: .body[:500], mergedAt, comments: [.comments[] | select(.createdAt >= "{TARGET_DATE}") | {author: .author.login, body: .body[:300], createdAt}], reviews: [.reviews[] | select(.submittedAt >= "{TARGET_DATE}") | {author: .author.login, body: .body[:300], state: .state}]}'
-```
+- タイトルや本文から、Issue/PR の目的と議論の背景を把握する。
+- コメント、レビュー、状態変更などの履歴から、対象日に自分が行った活動を確認する。必要に応じて、作成、マージ、クローズなどの情報も取得する。
+- 活動の日時と実行者を確認し、対象日以外の活動や他のユーザーの活動を、自分の対象日の活動として扱わない。
+- 取得方法、取得項目、本文やコメントの取得範囲は、対象件数や内容に応じて選択する。情報が不足する場合は追加取得する。
+- 更新日時だけで活動内容を推測せず、自分の具体的な活動を確認できない Issue/PR は要約対象から除外する。
 
 ### 4. 要約を生成する
 
