@@ -18,14 +18,14 @@ GitHub 上の指定日の活動を `gh` コマンドで検索し、各 Issue/PR 
 
 ### 2. GitHub の検索を実行する
 
-以下の4つの検索を実行する。実行順序や実行方法は、検索結果の件数や実行環境に応じて適切に選択する:
+`gh` コマンドを使い、対象日に自分が活動した可能性のある Issue/PR を検索する。
 
-```bash
-gh search issues --author=@me --updated={TARGET_DATE} --limit 50 --json title,url,updatedAt,state,repository
-gh search prs --author=@me --updated={TARGET_DATE} --limit 50 --json title,url,updatedAt,state,repository
-gh search prs --reviewed-by=@me --updated={TARGET_DATE} --limit 50 --json title,url,updatedAt,state,repository
-gh search issues --commenter=@me --updated={TARGET_DATE} --limit 50 --json title,url,updatedAt,state,repository
-```
+- 自分が作成した Issue/PR、自分がレビューした PR、自分がコメントした Issue/PR を検索対象とする。
+- 自分を表す検索条件には、利用可能な場合は `@me` を優先して使う。具体的なユーザー名が必要な場合にのみ取得する。
+- 対象日の活動を拾えるように検索条件を選択する。検索結果だけでは対象日に自分が活動したと判断せず、次の手順で詳細を確認する。
+- サブコマンド、検索条件の組み合わせ、取得項目、実行順序は、検索結果や実行環境に応じて選択する。
+- 取得件数の上限により結果が欠落する場合は、追加取得や検索条件の分割を行う。
+- 後続の詳細取得と重複排除に必要な、Issue/PR の URL などの識別情報を取得する。
 
 ### 3. 重複を排除して各 Issue/PR の詳細を取得する
 
